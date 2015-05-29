@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	form(id="login-form", class="form-horizontal" method="POST")
+		//-I could add action="/?whatever"
+		br
+		h4 Welcome to <i>Teen Connect</i>, a space where you can chat with anyone for free. Using our web site is easy - just choose a username and start chatting!
+		br
+		div.form-group
+			label.control-label.col-sm-1 Username:
+			div.col-sm-11
+				input(type="text", class="form-control", id="username", autocomplete="off", placeholder="Enter username", name="username", style="max-width: 30em")
+		//-div.form-group
+			label.control-label.col-sm-1 Password:
+			div.col-sm-11
+				input(type="password", class="form-control", id="password", placeholder="Enter password", name="password", style="max-width: 30em")
+		div.form-group
+			div.col-sm-offset-1.col-sm-12
+				input(type="submit", class="btn btn-default", id="submit-button" value="Log in")
+		//-The following will only be displayed if 'warning' exists
+		if warning
+			h4
+				i.text-danger Warning: 
+				=warning

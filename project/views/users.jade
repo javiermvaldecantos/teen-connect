@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	div(class="table-container")
+		br
+		h4 this is a list of all the users currently logged into <i>Teen Connect</i>. Try to find yourself!
+		br
+		table.table.table-bordered.table-hover.table-chat
+			thead.chat-head
+				tr.tr-chat
+					th.sender User Nº
+					th.message Username
+			tbody.users-body
+				- for(var i = 0; i < loggedUsers.length; i++)
+					if loggedUsers[i] === username
+						tr.tr-chat.info
+							td.sender=i+1
+							td.message #{loggedUsers[i]} <i>(You)</i>
+					else
+						tr.tr-chat
+							td.sender=i+1
+							td.message=loggedUsers[i]
+		if username === "unknown"
+			h4 You are not logged in. Start using our free chat <a href="/")> here </a>.
+	//Import web socket client library
+	script(type="text/javascript" src="/socket.io/socket.io.js")

@@ -1,0 +1,28 @@
+//-View for the chat room
+extends layout
+
+block content
+	div(id="chat-div" class="table-container")
+		table.table.table-striped.table-chat
+			thead.chat-head
+				tr.tr-chat
+					th.sender Sender
+					th.message Message
+			tbody.chat-body
+		if username
+			h4(class="username", id="#{username}", style="text-align: center;") Your username is <i class="text-primary">#{username}</i>. Your messages will appear highlighted in blue.
+		form(class="form-inline", role="form" method="POST")
+			div.form-group(style="width: 7%")
+				button(type="button" class="btn btn-info" id="button-like" style="width: 100%; min-width: 50px")
+					img(src="/images/like-25px.png")
+			div.form-group(style="width: 83%;")
+				input(type="text", class="form-control", id="msg", placeholder="Type something", autocomplete="off" name="message" style="width: 100%; min-width: 200px;" autofocus)
+			div.form-group(style="width: 10%;")
+				input(type="submit", class="btn btn-success", id="button-send", value="Send" style="width: 100%; min-width: 100px;")
+		br
+	//Import web socket client library
+	script(type="text/javascript" src="/socket.io/socket.io.js")
+	//Include javascript code for our web socket
+	script(type="text/javascript" src="/javascripts/socket-client.js")
+
+

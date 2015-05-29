@@ -1,0 +1,30 @@
+doctype html
+html
+	head
+		title Teen Connect | #{title}
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap-theme.css')
+		link(rel='stylesheet', href="/stylesheets/table-style.css")
+	body
+		//import jquery library
+		script(type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.js")
+		div.container
+			div.jumbotron(style="padding: 10px")
+				h1(style="margin: 15px") Teen Connect
+					if title === "Login"
+						a.pull-right(href="/users")
+							button.btn.btn-info User List
+					else if title === "Chat Room"
+						a.pull-right(href="/users?username=#{username}")
+							button.btn.btn-info User List
+					else if title === "User List"
+						if username === 'unknown'
+							a.pull-right(href="/")
+								button.btn.btn-info Home
+						else
+							a.pull-right(href="/chat?username=#{username}")
+								button.btn.btn-info Back to Chat Room
+					
+			h2
+				span(class="label label-primary center-block", style="max-width: 30%; min-width: 100px; white-space: normal;")= title
+			block content
