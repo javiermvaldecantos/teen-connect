@@ -11,9 +11,9 @@ var users = require('./routes/users');
 
 var app = express();
 
-/*configure server to listen on port 3000*/
-var server = app.listen(3000, function() {
-	console.log("Go to http://localhost:3000");
+/*configure server to listen on port 8080*/
+var server = app.listen(8080, function() {
+	console.log("Go to http://localhost:8080");
 });
 
 /*
