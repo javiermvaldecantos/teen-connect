@@ -1,6 +1,8 @@
 # teen-connect
 Web application that uses Node.js, Express.js and web sockets to provide a real-time chat service.
 
+## Check the live [DEMO](http://teenconnect-jmorenov.rhcloud.com/)!
+
 
  * How to use the app:
 In the root directory type the command 'npm start' on the terminal. You will be prompted to go to http://localhost:8080. Type that URL on your web browser and you will be able to use the chat!
